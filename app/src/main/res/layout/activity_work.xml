@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BDECBF"
+    tools:context=".work">
+
+    <Button
+        android:id="@+id/prevBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="prevClick"
+        android:text="Назад"
+        app:backgroundTint="#6473BA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/applyBut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvText2" />
+
+    <Button
+        android:id="@+id/nextBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="nextClick"
+        android:text="Далее"
+        app:backgroundTint="#6473BA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/applyBut"
+        app:layout_constraintTop_toBottomOf="@+id/tvText2" />
+
+    <Button
+        android:id="@+id/applyBut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="applyClick"
+        android:text="Принять"
+        app:backgroundTint="#6473BA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <WebView
+        android:id="@+id/tv_web"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#BDECBF"
+        app:layout_constraintBottom_toTopOf="@+id/tvText2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </WebView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tvText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        app:layout_constraintBottom_toTopOf="@+id/applyBut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Answer:" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvPages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="0/26"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/applyBut" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

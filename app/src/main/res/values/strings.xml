@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Egeintheroad</string>
+    <string name="home">В главное меню</string>
+    <string name="stat">Статистика</string>
+    <string name="ach">Достижения</string>
+    <string name="sett">Настройки</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="mathb">Базовая математика</string>
+    <string name="math">Профильная математика</string>
+    <string name="inf">Информатика</string>
+    <string name="phys">Физика</string>
+    <string name="bio">Биология</string>
+    <string name="hist">История</string>
+    <string name="lit">Литература</string>
+    <string name="chem">Химия</string>
+    <string name="soc">Обществознание</string>
+    <string name="geo">География</string>
+    <string name="rus">Русский язык</string>
+    <string name="en">Английский язык</string>
+    <string name="sp">Испанский язык</string>
+    <string name="fr">Французский язык</string>
+    <string name="de">Немецкий язык</string>
+</resources>
