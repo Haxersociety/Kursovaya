@@ -53,10 +53,4 @@ class result : AppCompatActivity() {
         startActivity(intent)
     }
 
-    // Переопределение метода, для невозможности перехода с
-    // activity(result) с правильными ответами, в activity(work) для дачи ответов
-    /*override fun onBackPressed() {
-        Toast.makeText(this, "Нажмите \"Закончить вариант\"",
-                Toast.LENGTH_SHORT).show()
-    }*/
 }

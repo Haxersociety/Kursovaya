@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(){
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,4 +21,15 @@ class MainActivity : AppCompatActivity(){
         val intent2 = Intent(this, statistic::class.java)
         startActivity(intent2)
     }
+
+    //TODO Переделать БД.
+
+    //TODO Переделать интерфейс.
+
+    //TODO Провести рефактор кода, оставить только необходимые функции (Сомневаюсь что вообще что-либо останется).
+
+    //TODO Распарсить сайт Яндекса на задачи
+    //https://yandex.ru/tutor/subject/tag/problems/?ege_number_id=283&tag_id=19
+    //Версия для печати:
+    //https://yandex.ru/tutor/subject/tag/problems/?ege_number_id=283&print=1&tag_id=19
 }

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.chelgames.egeintheroad.db.myDBManager
+import com.chelgames.egeintheroad.db.MyDBManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +14,7 @@ import org.jsoup.select.Elements
 import java.io.OutputStreamWriter
 
 class exercises: AppCompatActivity() {
-    private val myDBManager = myDBManager(this)
+    private val myDBManager = MyDBManager(this)
     private var ex2 = 0
     private var lastEx = 0
     private var lastExSize = 0

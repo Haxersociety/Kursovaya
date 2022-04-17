@@ -4,8 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 
-class myDBManager(context: Context) {
-    val myDBHelper = myDBHelper(context)
+class MyDBManager(context: Context) {
+    val myDBHelper = MyDBHelper(context)
     var db:SQLiteDatabase? = null
 
     fun openDB(){
@@ -15,29 +15,29 @@ class myDBManager(context: Context) {
     // Заполнение бд "Предмет|Номер|Ссылка|Количество заданий"
     fun insertToDB(subject: String, exercise: String, url: String, size: Int){
         val values = ContentValues().apply{
-            put(myDBWithURLSubj.COLUMN_NAME_SUBJECT, subject)
-            put(myDBWithURLSubj.COLUMN_NAME_EXERCISE, exercise)
-            put(myDBWithURLSubj.COLUMN_NAME_URL, url)
-            put(myDBWithURLSubj.COLUMN_NAME_SIZE, size)
+            put(MyDBWithURLSubj.COLUMN_NAME_SUBJECT, subject)
+            put(MyDBWithURLSubj.COLUMN_NAME_EXERCISE, exercise)
+            put(MyDBWithURLSubj.COLUMN_NAME_URL, url)
+            put(MyDBWithURLSubj.COLUMN_NAME_SIZE, size)
         }
 
-        db?.insert(myDBWithURLSubj.TABLE_NAME, null, values)
+        db?.insert(MyDBWithURLSubj.TABLE_NAME, null, values)
     }
 
     fun deleteFromDB(id: Int){
-        db?.delete(myDBWithURLSubj.TABLE_NAME, "_ID = " + id, null)
+        db?.delete(MyDBWithURLSubj.TABLE_NAME, "_ID = " + id, null)
     }
 
     fun readDBData(): ArrayList<String>{
         val dataList = ArrayList<String>()
-        val cursor = db?.query(myDBWithURLSubj.TABLE_NAME, null, null,
+        val cursor = db?.query(MyDBWithURLSubj.TABLE_NAME, null, null,
                 null, null, null, null)
         with(cursor){
             while(this?.moveToNext()!!){
-                val dataUrl = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_URL))
-                val dataSubj = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_SUBJECT))
-                val dataEx = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_EXERCISE))
-                val dataSz = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_SIZE))
+                val dataUrl = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_URL))
+                val dataSubj = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_SUBJECT))
+                val dataEx = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_EXERCISE))
+                val dataSz = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_SIZE))
                 dataList.add("$dataSubj+$dataEx+$dataUrl+$dataSz")
             }
         }
@@ -49,13 +49,13 @@ class myDBManager(context: Context) {
     // мы работаем
     fun readDBDataBySubj(sb: String): ArrayList<String>{
         val dataList = ArrayList<String>()
-        val cursor = db?.query(myDBWithURLSubj.TABLE_NAME, null, null,
+        val cursor = db?.query(MyDBWithURLSubj.TABLE_NAME, null, null,
                 null, null, null, null)
         with(cursor){
             while(this?.moveToNext()!!){
-                val dataSubj = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_SUBJECT))
-                val dataEx = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_EXERCISE))
-                val dataSz = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_SIZE))
+                val dataSubj = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_SUBJECT))
+                val dataEx = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_EXERCISE))
+                val dataSz = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_SIZE))
                 if (sb == dataSubj.toString()){
                     dataList.add("$dataEx+$dataSz")
                 }
@@ -68,11 +68,11 @@ class myDBManager(context: Context) {
     // Считывание предметов которые хранятся в бд
     fun readDBSubj(): ArrayList<String>{
         val dataList = ArrayList<String>()
-        val cursor = db?.query(myDBWithURLSubj.TABLE_NAME, null, null,
+        val cursor = db?.query(MyDBWithURLSubj.TABLE_NAME, null, null,
                 null, null, null, null)
         with(cursor){
             while(this?.moveToNext()!!){
-                val dataSubj = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_SUBJECT))
+                val dataSubj = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_SUBJECT))
                 dataList.add("$dataSubj")
             }
         }
@@ -82,11 +82,11 @@ class myDBManager(context: Context) {
 
     fun readDBSize(): ArrayList<String>{
         val dataList = ArrayList<String>()
-        val cursor = db?.query(myDBWithURLSubj.TABLE_NAME, null, null,
+        val cursor = db?.query(MyDBWithURLSubj.TABLE_NAME, null, null,
                 null, null, null, null)
         with(cursor){
             while(this?.moveToNext()!!){
-                val dataSize = cursor?.getString(cursor.getColumnIndex(myDBWithURLSubj.COLUMN_NAME_SIZE))
+                val dataSize = cursor?.getString(cursor.getColumnIndex(MyDBWithURLSubj.COLUMN_NAME_SIZE))
                 dataList.add("$dataSize")
             }
         }

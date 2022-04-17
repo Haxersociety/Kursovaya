@@ -2,7 +2,7 @@ package com.chelgames.egeintheroad.db
 
 import android.provider.BaseColumns
 
-object myDBWithURLSubj {
+object MyDBWithURLSubj {
     const val TABLE_NAME = "UrlOnTheme"
     const val COLUMN_NAME_SUBJECT = "subject"
     const val COLUMN_NAME_EXERCISE = "exercise"

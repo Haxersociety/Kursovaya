@@ -12,20 +12,22 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.chelgames.egeintheroad.db.myDBManager
+import com.chelgames.egeintheroad.db.MyDBManager
 import com.google.android.material.textfield.TextInputEditText
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 
 class work : AppCompatActivity() {
-    private val myDBManager = myDBManager(this)
+
+    private val myDBManager = MyDBManager(this)
     private var numbers = ArrayList<Int>()
     private var answers = ArrayList<String>()
     private var trueAnswers = ArrayList<Int>()
     private var exSize = ArrayList<Int>()
-    private var Page = 0
+    private var page = 0
     private var move = 0
     private var tvPages:TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_work)
@@ -73,24 +75,24 @@ class work : AppCompatActivity() {
 
     // Переход к следующему заданию
     fun nextClick(view: View){
-        if(Page == 26){
+        if(page == 26){
             val intent = Intent(this, result::class.java).apply{
                 putExtra("result", trueAnswers)
                 putExtra("ans", answers)
             }
             startActivity(intent)
         }
-        if(Page < 26) {
-            Page++
+        if(page < 26) {
+            page++
             if (move == 0) {
-                numbers.add((0..exSize[Page]).random())
-                var File_name = "rus_${Page}_${numbers[Page]}.html"
+                numbers.add((0..exSize[page]).random())
+                var File_name = "rus_${page}_${numbers[page]}.html"
                 var fis = openFileInput(File_name)
                 var ir = InputStreamReader(fis)
                 var text = ir.readText()
                 while(text.contains("Источник: РЕШУ ЕГЭ") || !text.contains("Источник:")){
-                    numbers[Page]  = (0..exSize[Page]).random()
-                    File_name = "rus_${Page}_${numbers[Page]}.html"
+                    numbers[page]  = (0..exSize[page]).random()
+                    File_name = "rus_${page}_${numbers[page]}.html"
                     fis = openFileInput(File_name)
                     ir = InputStreamReader(fis)
                     text = ir.readText()
@@ -105,14 +107,14 @@ class work : AppCompatActivity() {
                     var outputWriter = OutputStreamWriter(fos)
                     outputWriter.write(text)
                     outputWriter.close()
-                    File_name = "rus_${Page}_${numbers[Page]}_a.html"
+                    File_name = "rus_${page}_${numbers[page]}_a.html"
                     fos = openFileOutput(File_name, Context.MODE_PRIVATE)
                     outputWriter = OutputStreamWriter(fos)
                     outputWriter.write(x)
                     outputWriter.close()
                 }
                 else{
-                    File_name = "rus_${Page}_${numbers[Page]}_a.html"
+                    File_name = "rus_${page}_${numbers[page]}_a.html"
                     fis = openFileInput(File_name)
                     ir = InputStreamReader(fis)
                     text = ir.readText()
@@ -121,10 +123,10 @@ class work : AppCompatActivity() {
             }
             else
                 move--
-            getWeb("rus_${Page}_${numbers[Page]}.html")
-            tvPages?.setText("$Page/26")
+            getWeb("rus_${page}_${numbers[page]}.html")
+            tvPages?.setText("$page/26")
         }
-        if(Page == 26) {
+        if(page == 26) {
             val tvBut = findViewById<Button>(R.id.nextBut)
             tvBut.setText("Закончить")
         }
@@ -132,25 +134,25 @@ class work : AppCompatActivity() {
 
     // Переход на предыдущее задание
     fun prevClick(view: View){
-        if(Page == 26){
+        if(page == 26){
             val tvBut = findViewById<Button>(R.id.nextBut)
             tvBut.setText("Далее")
         }
-        if(Page > 0){
+        if(page > 0){
             move++
-            Page--
-            getWeb("rus_${Page}_${numbers[Page]}.html")
-            tvPages?.setText("$Page/26")
+            page--
+            getWeb("rus_${page}_${numbers[page]}.html")
+            tvPages?.setText("$page/26")
         }
     }
 
     fun applyClick(view: View){
         // Сравнение ответов
-        if(trueAnswers[Page] == 0 || trueAnswers[Page] == 1)
+        if(trueAnswers[page] == 0 || trueAnswers[page] == 1)
             return
         val tvText = findViewById<TextInputEditText>(R.id.tvText)
         val text = tvText.text.toString()
-        var answer = answers[Page]
+        var answer = answers[page]
         val text2 = answer
         val ans = ArrayList<String>()
         if(answer.contains("|")){
@@ -167,12 +169,12 @@ class work : AppCompatActivity() {
         }
         if(b == 1){
             Toast.makeText(this, "Ответ $text верный", Toast.LENGTH_SHORT).show()
-            trueAnswers[Page] = 1
+            trueAnswers[page] = 1
             tvText.setText("")
         }
         else{
             Toast.makeText(this, "Ответ $text не верный, правильный ответ $text2", Toast.LENGTH_SHORT).show()
-            trueAnswers[Page] = 0
+            trueAnswers[page] = 0
             tvText.setText("")
         }
     }
