@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -54,7 +53,7 @@ class work : AppCompatActivity() {
 
     // Загрузка страницы
     private fun getWeb(file: String) {
-        val tvWeb: WebView = findViewById(R.id.tv_web)
+        val tvWeb: WebView = findViewById(R.id.test_web)
         tvWeb.webViewClient = WebViewClient()
         tvWeb.canGoBack()
         tvWeb.apply {
