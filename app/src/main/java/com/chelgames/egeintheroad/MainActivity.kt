@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.test_activity_main)
-
-        getWeb("file:///android_asset/page")
+        setContentView(R.layout.activity_main)
     }
 
     fun clickOnStart(view: View){
