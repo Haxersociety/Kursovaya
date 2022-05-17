@@ -4,8 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BDECBF"
+    android:background="#f1dbde"
     tools:context=".result">
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:adjustViewBounds="true"
+        android:background="#00FFFFFF"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:cropToPadding="false"
+        android:onClick="clickOnFinish"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        app:srcCompat="@drawable/finish_variant" />
 
     <TextView
         android:id="@+id/tvAnswers"
@@ -34,19 +56,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btFinish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="clickOnFinish"
-        android:text="Закончить вариант"
-        app:backgroundTint="#6473BA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.98" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

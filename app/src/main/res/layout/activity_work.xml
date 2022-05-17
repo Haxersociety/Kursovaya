@@ -4,45 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BDECBF"
+    android:background="#f1dbde"
     tools:context=".work">
 
-    <Button
-        android:id="@+id/prevBut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/imageButton7"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:background="#00FFFFFF"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:cropToPadding="false"
         android:onClick="prevClick"
-        android:text="Назад"
-        app:backgroundTint="#6473BA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/applyBut"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvText2" />
-
-    <Button
-        android:id="@+id/nextBut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="nextClick"
-        android:text="Далее"
-        app:backgroundTint="#6473BA"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/applyBut"
-        app:layout_constraintTop_toBottomOf="@+id/tvText2" />
-
-    <Button
-        android:id="@+id/applyBut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="applyClick"
-        android:text="Принять"
-        app:backgroundTint="#6473BA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/prev_button" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:adjustViewBounds="true"
+        android:background="#00FFFFFF"
+        android:baselineAlignBottom="false"
+        android:clickable="true"
+        android:cropToPadding="false"
+        android:onClick="nextClick"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/next_button" />
 
     <WebView
         android:id="@+id/test_web"
@@ -53,7 +60,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
     </WebView>
 
@@ -61,12 +69,11 @@
         android:id="@+id/tvText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
-        app:layout_constraintBottom_toTopOf="@+id/applyBut"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPages"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9">
+        app:layout_constraintVertical_bias="0.91">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tvText"
@@ -79,13 +86,13 @@
         android:id="@+id/tvPages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif-black"
         android:text="0/26"
-        android:textSize="20sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/applyBut" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
