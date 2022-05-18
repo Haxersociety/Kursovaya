@@ -15,16 +15,16 @@
         android:theme="@style/Theme.Egeintheroad">
 
         <activity
-            android:name=".work"
+            android:name=".Work"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".exercises"
+            android:name=".Exercises"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".result"
+            android:name=".Result"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".statistic"
+            android:name=".Statistic"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

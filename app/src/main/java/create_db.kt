@@ -17,16 +17,16 @@ fun main() {
     var group = 0
 
     for(id in ege_number_id) {
-        val rootDir = Paths.get("app/src/main/assets")
+        val rootDir = Paths.get("app/src/main/assets/exercises")
         group++
         val dir = Files.createTempDirectory(rootDir, "rus_${group}_")
 
         val doc =
-            Jsoup.connect("https://rus-ege.sdamgia.ru/test?filter=all&category_id=${id}&print=true&ans=true")
+            Jsoup.connect("https://rus-ege.sdamgia.ru/test?filter=all&category_id=${id}&print=true")
                 .get()
         val elems = doc.getElementsByAttributeValue("class", "prob_maindiv")
         println(elems.size)
-        for(i in 0 until elems.size) {
+        for(i in 0 until elems.size-1) {
             val File_name = "$i.html"
             var text = elems[i].toString()
             val fos = File("$dir/$File_name")

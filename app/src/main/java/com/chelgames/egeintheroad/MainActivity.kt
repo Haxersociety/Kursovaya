@@ -19,25 +19,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickOnStart(view: View) {
-        val intent = Intent(this, exercises::class.java)
+        val intent = Intent(this, Exercises::class.java)
         startActivity(intent)
     }
 
     fun clickOnStat(view: View) {
-        val intent2 = Intent(this, statistic::class.java)
+        val intent2 = Intent(this, Statistic::class.java)
         startActivity(intent2)
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun getWeb(file: String) {
-        val tvWeb: WebView = findViewById(R.id.test_web)
-        tvWeb.webViewClient = WebViewClient()
-        tvWeb.canGoBack()
-        tvWeb.apply {
-            settings.allowFileAccess = true
-            loadUrl(file)
-            settings.javaScriptEnabled = true
-        }
     }
 
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f1dbde"
-    tools:context=".result">
+    tools:context=".Result">
 
     <ImageButton
         android:id="@+id/imageButton5"
