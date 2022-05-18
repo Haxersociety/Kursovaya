@@ -35,13 +35,13 @@ class work : AppCompatActivity() {
     // Загрузка страницы
     private fun getWeb(file: String) {
         val tvWeb: WebView = findViewById(R.id.test_web)
-//        tvWeb.webViewClient = WebViewClient()
-//        tvWeb.canGoBack()
-//        tvWeb.apply {
-//            settings.allowFileAccess = true
-//            //loadUrl("file:///data/data/com.chelgames.egeintheroad/files/$file")
-//            settings.javaScriptEnabled = true
-//        }
+        tvWeb.webViewClient = WebViewClient()
+        tvWeb.canGoBack()
+        tvWeb.apply {
+            settings.allowFileAccess = true
+            loadUrl("file:///data/data/com.chelgames.egeintheroad/files/$file")
+            settings.javaScriptEnabled = true
+        }
     }
 
     private fun addInstruction(){
