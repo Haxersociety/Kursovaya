@@ -15,7 +15,10 @@
         android:theme="@style/Theme.Egeintheroad">
 
         <activity
-            android:name=".Work"
+            android:name=".WorkVariant"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WorkSelect"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Exercises"

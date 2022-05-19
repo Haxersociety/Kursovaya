@@ -8,6 +8,8 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.chelgames.egeintheroad.db.MyDBManager
+import com.chelgames.egeintheroad.db.MyDBManager2
 import java.io.OutputStreamWriter
 
 

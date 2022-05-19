@@ -14,7 +14,7 @@ class MyDialogFragment : DialogFragment() {
                 .setMessage("После завершения попытки, изменить варианты ответа будет невозможно.")
                 .setCancelable(true)
                 .setPositiveButton("Да") { dialog, id ->
-                    (activity as Work?)?.finishTry()
+                    (activity as WorkVariant?)?.finishTry()
                 }
                 .setNegativeButton("Нет", { dialog, id -> })
             builder.create()

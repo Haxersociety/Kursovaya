@@ -15,15 +15,13 @@ class Exercises: AppCompatActivity() {
 
     // Создание нового варианты из случайных заданий.
     fun createVariant(view: View){
-        val intent = Intent(this, Work::class.java)
-        intent.putExtra("type", 1);
+        val intent = Intent(this, WorkVariant::class.java)
         startActivity(intent)
     }
 
     // Подбор заданий на основе предыдущих вариантов.
     fun selectTasks(view: View){
-        val intent = Intent(this, Work::class.java)
-        intent.putExtra("type", 2);
+        val intent = Intent(this, WorkSelect::class.java)
         startActivity(intent)
     }
 }

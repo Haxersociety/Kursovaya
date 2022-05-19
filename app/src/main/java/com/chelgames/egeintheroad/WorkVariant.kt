@@ -16,7 +16,7 @@ import com.chelgames.egeintheroad.db.MyDBManager
 import com.google.android.material.textfield.TextInputEditText
 
 
-class Work : AppCompatActivity() {
+class WorkVariant : AppCompatActivity() {
 
     private val myDBManager = MyDBManager(this)
     private var exercises = ArrayList<Int>()
@@ -32,40 +32,27 @@ class Work : AppCompatActivity() {
 
         textViewPages = findViewById(R.id.tvPages)
 
-        val arguments = intent.extras
-        val type = arguments!!["type"]
-
         val myAssetManager = applicationContext.assets
 
+        val categories = myAssetManager.list("exercises")
+        //Создаем массив с заданиями
+        for (i in 0 until categories?.size!!) {
+            val exercisesList = myAssetManager.list("exercises/rus_${i + 1}")
+            val randomEx = (0 until exercisesList?.size!!).random()
+            exercises.add(randomEx)
+            answers.add("")
 
-        when (type) {
-            //Случайный вариант
-            1 -> {
-                val categories = myAssetManager.list("exercises")
-                //Создаем массив с заданиями
-                for (i in 0 until categories?.size!!) {
-                    val exercisesList = myAssetManager.list("exercises/rus_${i + 1}")
-                    val randomEx = (0 until exercisesList?.size!!).random()
-                    exercises.add(randomEx)
-                    answers.add("")
-
-                    val trueAnswer: String =
-                        applicationContext.assets
-                            .open("answers/rus_${i + 1}/$randomEx.html")
-                            .bufferedReader().use {
-                                it.readText()
-                            }
-                    println(trueAnswer)
-                    trueAnswers.add(trueAnswer)
-                }
-                getWeb("rus_1/${exercises[0]}.html")
-                textViewPages?.setText("$currentPage/25")
-            }
-            //Подбор заданий на основе предыдущих решенных вариантов
-            2 -> {
-
-            }
+            val trueAnswer: String =
+                applicationContext.assets
+                    .open("answers/rus_${i + 1}/$randomEx.html")
+                    .bufferedReader().use {
+                        it.readText()
+                    }
+            println(trueAnswer)
+            trueAnswers.add(trueAnswer)
         }
+        getWeb("rus_1/${exercises[0]}.html")
+        textViewPages?.setText("$currentPage/25")
 
     }
 
